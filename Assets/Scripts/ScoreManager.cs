@@ -6,14 +6,14 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     #region PRIVATE VARIABLES
-    private int score;
+    private int Kills;
     #endregion
 
     #region PUBLIC METHOD
     public void ScoreCalculater(int value)
     {
-        score = score + value;
-        Debug.Log(score);
+        Kills = Kills + value;
+        Debug.Log("Kills :" + Kills);
     }
     #endregion
 }

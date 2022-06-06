@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 19029065108197268}
   - component: {fileID: 19029065108197269}
   - component: {fileID: 19029065108197275}
+  - component: {fileID: 6975722201621782615}
   m_Layer: 0
   m_Name: PlayerLaser
   m_TagString: Untagged
@@ -98,3 +99,37 @@ MonoBehaviour:
   bulletSpeed: 5
   screenTop: 6
   score: {fileID: 0}
+--- !u!60 &6975722201621782615
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19029065108197270}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.2739726, y: 0.82191783}
+    newSize: {x: 1, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.021917809, y: 0.3890411}
+      - {x: -0.043835618, y: 0.3808219}
+      - {x: -0.043835618, y: -0.36438358}
+      - {x: -0.03561644, y: -0.37808222}
+      - {x: 0.021917809, y: -0.37808222}
+      - {x: 0.038356166, y: -0.3753425}
+      - {x: 0.038356166, y: 0.36986303}
+      - {x: 0.032876715, y: 0.3808219}
+      - {x: 0.024657534, y: 0.3890411}

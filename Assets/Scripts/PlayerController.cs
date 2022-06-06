@@ -70,18 +70,10 @@ public class PlayerController : MonoBehaviour
         uiManager.UpdateLives(lives);
         //Debug.Log("life" + lives);
         StartCoroutine(StartInvincibilityTimer(2.5f));
-
-        if (lives <= 0)
-        {
-            //isGameOver = true;
-            //isWon = false;
-            //gameManager.GameOver();
-        }
     }
     #endregion
 
-
-    private IEnumerator StartInvincibilityTimer(float timeLimit)
+    public IEnumerator StartInvincibilityTimer(float timeLimit)
     {
         GetComponent<Collider2D>().enabled = false;
 
