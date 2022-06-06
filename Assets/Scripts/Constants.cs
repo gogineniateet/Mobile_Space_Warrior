@@ -14,7 +14,11 @@ public class Constants : MonoBehaviour
 
     public const string ASTEROID_PREFAB = "Asteroid";
 
-    //public const int PLAYER_BULLET_SPEED = 1;
+    public const int ENEMY_SHIP_SPEED = 1; 
+    public const int PLAYER_BULLET_SPEED = 1;
+
+
+
 
     public const int ASTEROID_LAYER = 9;
     public const int PLAYER_BULLET = 8;
