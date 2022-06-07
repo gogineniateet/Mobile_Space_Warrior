@@ -58,7 +58,7 @@ public class InputHandler : MonoBehaviour
                 movement += touch.deltaPosition; //The position delta since last change in pixel coordinates.
                 if (!panGestureRecognized && Time.time - startTime > panMinTime)//if current time and start time greater than min time 
                 {
-                    Debug.Log("Pan Gesture Enabled");
+                    //Debug.Log("Pan Gesture Enabled");
                     panGestureRecognized = true;
                     tapGestureFailed = true;
 
@@ -73,7 +73,7 @@ public class InputHandler : MonoBehaviour
                 else if (movement.magnitude > tapMaxMovement) //Bigger movements, its failed
                 {
                     tapGestureFailed = true;
-                    Debug.Log("tap failed");
+                    //Debug.Log("tap failed");
                 }
             }
             else  // if finger is removed from screen, then we are calling if tap gesture is not failed.

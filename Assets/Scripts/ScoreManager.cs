@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
     {
         Kills = Kills + value;
         Debug.Log("Kills :" + Kills);
+        scoreText.text = Kills.ToString();
     }
     #endregion
 }

@@ -6,7 +6,17 @@ public class EnemyController : MonoBehaviour
 {
     #region PRIVATE VBARIABLE
     private float timer;
+    private Animator animator;
     #endregion
+    public GameObject explosionPrefab;
+
+
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
 
     #region
     // Update is called once per frame
@@ -20,13 +30,13 @@ public class EnemyController : MonoBehaviour
             SpawnManager.Instance.SpawnFire(this.transform.position);
             timer = 0;
         }
-        if (transform.position.y < -3f )//|| PlayerController.Instance.isGameOver == true)
+        if (transform.position.y < -6f )//|| PlayerController.Instance.isGameOver == true)
         {
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
-
         timer = 0;
     }
+
     // decreasing player life on enemy ship collision
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,5 +48,16 @@ public class EnemyController : MonoBehaviour
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
     }
+
+
+    public void Damage()
+    {
+        
+    }
+
+
+
     #endregion
+
+
 }

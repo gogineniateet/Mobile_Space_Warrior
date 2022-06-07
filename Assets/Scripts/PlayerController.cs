@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region PUBLIC VARIABLES
-    Rigidbody2D rb;
     public static int lives = 3;
     public bool isGameOver  = false;
     public Transform bulletPosition;
@@ -13,10 +12,11 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PRIVATE VARIABLE
+    private Rigidbody2D rb;
     private UIManager uiManager;
     #endregion
 
-    #region MONOBEHAVIOUR METHODS
+    #region SINGLETON
     public static PlayerController instance;
     public static PlayerController Instance
     {
@@ -37,28 +37,29 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+
+
     #region MONIBEHAVIOUR METHOD
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
     private void OnEnable()
     {
         InputHandler.OnPanHeld += PositionOfShip;
-        InputHandler.OnTouchAction += ShootBullets;
+        //InputHandler.OnTouchAction += ShootBullets;
     }
     private void OnDisable()
     {
         InputHandler.OnPanHeld -= PositionOfShip;
-        InputHandler.OnTouchAction -= ShootBullets;
-
+        //InputHandler.OnTouchAction -= ShootBullets;
     }
     #endregion
 
     #region PUBLIC METHODS
     public void PositionOfShip(Touch touch)
     {
-        //Debug.Log("Method");
         Vector3 shipPosition = Camera.main.ScreenToWorldPoint(touch.position); //Changing the pixelcoordinate to world coordinates
         shipPosition.z = transform.position.z;
         shipPosition.y = transform.position.y;
@@ -75,29 +76,24 @@ public class PlayerController : MonoBehaviour
         lives = lives - life;
         Debug.Log("life" + lives);
         StartCoroutine(StartInvincibilityTimer(2.5f));
-        //uiManager.UpdateLives(lives);
+        uiManager.UpdateLives(lives);
 
         if (lives <= 0)
         {
             Debug.Log("game over");
         }
-    }
-    #endregion
+    }    
 
     public IEnumerator StartInvincibilityTimer(float timeLimit)
     {
         GetComponent<Collider2D>().enabled = false;
-
         SpriteRenderer[] spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
-        Debug.Log(spriteRenderer);
-        
+        //Debug.Log(spriteRenderer);        
         float timer = 0;
         float blinkSpeed = 0.25f;
-
         while (timer < timeLimit)
         {
             yield return new WaitForSeconds(blinkSpeed);
-
             spriteRenderer[0].enabled = !spriteRenderer[0].enabled;
             spriteRenderer[1].enabled = !spriteRenderer[1].enabled;
             timer += blinkSpeed;
@@ -106,26 +102,10 @@ public class PlayerController : MonoBehaviour
         spriteRenderer[1].enabled = true;
         GetComponent<Collider2D>().enabled = true;
     }
+    #endregion
 
-    public void ShootBullets(Touch t)
-    {
-        ShootTheBullets();
-        Debug.Log("shooting Bullets");
-    }
-    private void ShootTheBullets()
-    {
-        //Instantiate(bulletPrefab, bulletPosition.position, Quaternion.identity);
+    
 
-        GameObject tempBullet = PoolManager.Instance.Spawn(Constants.PLAYER_BULLET_PREFAB);
-        tempBullet.transform.position = bulletPosition.transform.position;
-        NextBullet();
-    }
-    IEnumerator NextBullet()
-    {
-
-        yield return new WaitForSeconds(5f);
-        Debug.Log("Coroutine Function");
-    }
 
 
 

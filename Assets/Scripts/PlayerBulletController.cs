@@ -9,6 +9,12 @@ public class PlayerBulletController : MonoBehaviour
     public float screenTop = 6f;
     public ScoreManager kills;
     #endregion
+    
+
+    private void Start()
+    {
+        kills = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -32,6 +38,7 @@ public class PlayerBulletController : MonoBehaviour
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ASTEROID_PREFAB, collision.gameObject);
             kills.ScoreCalculater(5);
+            // SOUNDS 
             // EXPLOSION PARTICAL EFFECT
         }
         if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)
@@ -39,6 +46,7 @@ public class PlayerBulletController : MonoBehaviour
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, collision.gameObject);
             kills.ScoreCalculater(10);
+            //GameObject.Find(Constants.ENEMY_01_SHIP_PREFAB).GetComponent<EnemyController>().Damage();
             // PARTICAL EFFECT
         }
         if (collision.gameObject.layer == Constants.ENEMY_BULLET_LAYER)

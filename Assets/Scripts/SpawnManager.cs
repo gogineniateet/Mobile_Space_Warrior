@@ -84,5 +84,6 @@ public class SpawnManager : MonoBehaviour
         tempAsteroid.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);
         //tempAsteroid.transform.position = new Vector3(Random.Range(Screen.width, Screen.width), Screen.height, 0f);
     }
+    
     #endregion
 }
