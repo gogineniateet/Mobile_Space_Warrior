@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 976960438629199107}
   - component: {fileID: 976960438629199117}
   - component: {fileID: 976960438629199116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerShipThruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,9 +115,9 @@ GameObject:
   - component: {fileID: 976960438844599140}
   - component: {fileID: 976960438844599141}
   - component: {fileID: 9055052466526547374}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 3
+  isGameOver: 0
 --- !u!60 &9055052466526547374
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -357,7 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 976960439361996099}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletLaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

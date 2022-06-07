@@ -49,11 +49,11 @@ public class PoolManager : MonoBehaviour
     public void CreatePool(GameObject prefab, int initialCapacity)
     {
         if (pools == null)
+        {
             pools = new Dictionary<string, ObjectPool>();
-
+        }   
         ObjectPool newPool = new ObjectPool(prefab, initialCapacity);
         pools.Add(prefab.name, newPool);
-
     }
     // Spawn an object with the given name.
     public GameObject Spawn(string prefabName)
@@ -63,14 +63,14 @@ public class PoolManager : MonoBehaviour
 
         return pools[prefabName].Spawn();
     }
-    
+    // Recycle an object with the given name.
     public void Recycle(string prefabName, GameObject gameObj)
     {
         if (!pools.ContainsKey(prefabName))
         {
             return;
         }
-        pools[prefabName].BackToPool(gameObj);
+        pools[prefabName].Recycle(gameObj);
     }
     #endregion
 }

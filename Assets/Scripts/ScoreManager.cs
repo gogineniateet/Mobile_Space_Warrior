@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    #region PUBLIC VARIABLES 
+    public Text scoreText;
+    #endregion
     #region PRIVATE VARIABLES
     private int Kills;
     #endregion

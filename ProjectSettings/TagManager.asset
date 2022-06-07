@@ -13,11 +13,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerShip
+  - PlayerBullet
+  - EnemyShip
+  - EnemyBullet
+  - Asteroid
   - 
   - 
   - 

@@ -6,7 +6,10 @@ public class PlayerController : MonoBehaviour
 {
     #region PUBLIC VARIABLES
     Rigidbody2D rb;
-    public int lives = 3;
+    public static int lives = 3;
+    public bool isGameOver  = false;
+    public Transform bulletPosition;
+    public const string TURN_ON_COROUTINE = "NextBullet";
     #endregion
 
     #region PRIVATE VARIABLE
@@ -42,10 +45,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         InputHandler.OnPanHeld += PositionOfShip;
+        InputHandler.OnTouchAction += ShootBullets;
     }
     private void OnDisable()
     {
         InputHandler.OnPanHeld -= PositionOfShip;
+        InputHandler.OnTouchAction -= ShootBullets;
+
     }
     #endregion
 
@@ -67,9 +73,14 @@ public class PlayerController : MonoBehaviour
     public void LostLife(int life)
     {
         lives = lives - life;
-        uiManager.UpdateLives(lives);
-        //Debug.Log("life" + lives);
+        Debug.Log("life" + lives);
         StartCoroutine(StartInvincibilityTimer(2.5f));
+        //uiManager.UpdateLives(lives);
+
+        if (lives <= 0)
+        {
+            Debug.Log("game over");
+        }
     }
     #endregion
 
@@ -77,8 +88,9 @@ public class PlayerController : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
 
-        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
+        SpriteRenderer[] spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
+        Debug.Log(spriteRenderer);
+        
         float timer = 0;
         float blinkSpeed = 0.25f;
 
@@ -86,10 +98,35 @@ public class PlayerController : MonoBehaviour
         {
             yield return new WaitForSeconds(blinkSpeed);
 
-            spriteRenderer.enabled = !spriteRenderer.enabled;
+            spriteRenderer[0].enabled = !spriteRenderer[0].enabled;
+            spriteRenderer[1].enabled = !spriteRenderer[1].enabled;
             timer += blinkSpeed;
         }
-        spriteRenderer.enabled = true;
+        spriteRenderer[0].enabled = true;
+        spriteRenderer[1].enabled = true;
         GetComponent<Collider2D>().enabled = true;
     }
+
+    public void ShootBullets(Touch t)
+    {
+        ShootTheBullets();
+        Debug.Log("shooting Bullets");
+    }
+    private void ShootTheBullets()
+    {
+        //Instantiate(bulletPrefab, bulletPosition.position, Quaternion.identity);
+
+        GameObject tempBullet = PoolManager.Instance.Spawn(Constants.PLAYER_BULLET_PREFAB);
+        tempBullet.transform.position = bulletPosition.transform.position;
+        NextBullet();
+    }
+    IEnumerator NextBullet()
+    {
+
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Coroutine Function");
+    }
+
+
+
 }

@@ -20,18 +20,21 @@ public class EnemyController : MonoBehaviour
             SpawnManager.Instance.SpawnFire(this.transform.position);
             timer = 0;
         }
-
-        if (transform.position.y < -7f )//|| PlayerController.Instance.isGameOver == true)
+        if (transform.position.y < -3f )//|| PlayerController.Instance.isGameOver == true)
         {
-            PoolManager.Instance.Recycle("Enemy", this.gameObject);
+            PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
+
+        timer = 0;
     }
     // decreasing player life on enemy ship collision
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.layer == Constants.PLAYER_SHIP_LAYER)
         {
-            PlayerController.Instance.LostLife(1);
+            Debug.Log(collision.gameObject.layer);
+            //Destroy(collision.gameObject);
+            GameObject.Find("Player").GetComponent<PlayerController>().LostLife(1);
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
     }

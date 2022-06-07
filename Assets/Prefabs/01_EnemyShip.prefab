@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6997221035948308028}
   - component: {fileID: 5192295733620993517}
   - component: {fileID: 5275709241967474673}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 01_EnemyShip
-  m_TagString: 01_Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6997221036050143647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}

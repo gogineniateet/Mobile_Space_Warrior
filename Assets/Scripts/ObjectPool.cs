@@ -47,7 +47,7 @@ public class ObjectPool : MonoBehaviour
 
 
 	// Storing game object again to the pool
-	public void BackToPool(GameObject gameObj)
+	public void Recycle(GameObject gameObj)
     {
 		gameObj.SetActive(false);
 		pool.Enqueue(gameObj);
