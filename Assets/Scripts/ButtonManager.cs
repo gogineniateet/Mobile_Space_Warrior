@@ -12,6 +12,11 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void LevelUp()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 
     public void Settings()
     {

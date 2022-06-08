@@ -8,6 +8,7 @@ public class PlayerBulletController : MonoBehaviour
     public float bulletSpeed = 1.0f;
     public float screenTop = 6f;
     public ScoreManager kills;
+    [SerializeField] GameObject explosionPrefab;
     #endregion
     
 
@@ -44,9 +45,11 @@ public class PlayerBulletController : MonoBehaviour
         }
         if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)
         {
+            Instantiate(explosionPrefab, this.gameObject.transform.position, Quaternion.identity);
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, collision.gameObject);
             kills.ScoreCalculater(10);
+
             //collision.gameObject.GetComponent<EnemyController>().Damage();
             // PARTICAL EFFECT
         }

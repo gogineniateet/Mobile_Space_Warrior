@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
     #region PRIVATE VBARIABLE
     private float timer;
     private Animator animator;
+    //private bool shoot = false;
+    //Scene scene;
     #endregion
     public GameObject explosionPrefab;
 
@@ -14,7 +17,17 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        //scene = SceneManager.GetActiveScene();
         animator = GetComponent<Animator>();
+        //if(scene.buildIndex == 2)
+        //{
+        //    shoot = true;
+        //}
+        //else
+        //{
+        //    shoot = false;
+        //}
+
     }
 
 
@@ -30,7 +43,7 @@ public class EnemyController : MonoBehaviour
             SpawnManager.Instance.SpawnFire(this.transform.position);
             timer = 0;
         }
-        if (transform.position.y < -6f )//|| PlayerController.Instance.isGameOver == true)
+        if (transform.position.y < -6f )
         {
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
@@ -44,25 +57,10 @@ public class EnemyController : MonoBehaviour
 
         if (collision.gameObject.layer == Constants.PLAYER_SHIP_LAYER)
         {
-            //Destroy(collision.gameObject);
             collision.gameObject.GetComponent<PlayerController>().LostLife(1);
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
     }
-
-
-    //public void Damage()
-    //{
-    //    animator.SetTrigger("isExplode");
-    //    StartCoroutine(OnDamage());
-
-    //}
-
-    //IEnumerator OnDamage()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
-    //}
 
     #endregion
 

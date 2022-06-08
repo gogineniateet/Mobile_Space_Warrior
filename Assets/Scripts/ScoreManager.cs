@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -18,6 +19,12 @@ public class ScoreManager : MonoBehaviour
         Kills = Kills + value;
         Debug.Log("Kills :" + Kills);
         scoreText.text = Kills.ToString();
+
+        if(Kills >= 100)
+        {
+            SceneManager.LoadScene(4);
+        }
+
     }
     #endregion
 }

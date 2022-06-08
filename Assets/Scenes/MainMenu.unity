@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.91120523}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 165}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &95772258
@@ -182,18 +182,23 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: eff11f1bd958ce74080fc03acd634f04, type: 3}
-    m_FontSize: 60
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 60
-    m_Alignment: 0
+    m_MinSize: 1
+    m_MaxSize: 120
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\n\n        New Text"
+  m_Text: "\n\n\n\n1. Move the Player from Left to right \r\n2. Tap to shoot the
+    Enemies and Astreoids\n3. If the player destroys all the enemy \rspaceships within
+    a particular time then \rthe player wins the game.\r\n4. If an asteroid, enemy
+    ship, enemy ship \rbullet got hit then player then player loses his life.\r\n5.
+    If the player loses all his lifes then the player \rloses the game.\r\n6.If the
+    player did not kill the enemies within the \rtime then the player loses the game."
 --- !u!222 &95772259
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -231,10 +236,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1063593272}
-  - {fileID: 414938567}
-  - {fileID: 2015791292}
+  m_Children: []
   m_Father: {fileID: 2076823563}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -700,13 +702,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 556392964}
-  m_Father: {fileID: 262599470}
-  m_RootOrder: 1
+  m_Father: {fileID: 2076823563}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 720, y: -1616}
+  m_SizeDelta: {x: 1000, y: 396.6667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414938568
 MonoBehaviour:
@@ -752,17 +754,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310054633}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: Settings
-        m_Mode: 1
+      - m_Target: {fileID: 482954839}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &414938569
 MonoBehaviour:
@@ -816,7 +818,7 @@ GameObject:
   - component: {fileID: 437691281}
   - component: {fileID: 437691284}
   m_Layer: 5
-  m_Name: BackButton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,9 +888,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1742491461}
+      - m_Target: {fileID: 437691284}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: BackSettingsButton
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -896,7 +898,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &437691282
 MonoBehaviour:
@@ -1091,7 +1093,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482954839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1100,8 +1102,8 @@ RectTransform:
   - {fileID: 1127510073}
   - {fileID: 2114062566}
   - {fileID: 437691280}
-  m_Father: {fileID: 2076823563}
-  m_RootOrder: 3
+  m_Father: {fileID: 920729193}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1467,6 +1469,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2076823563}
+  - {fileID: 482954840}
+  - {fileID: 1322936429}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1592,13 +1596,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1505264832}
-  m_Father: {fileID: 262599470}
-  m_RootOrder: 0
+  m_Father: {fileID: 2076823563}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 720, y: -1198}
+  m_SizeDelta: {x: 1000, y: 396.6667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1063593273
 MonoBehaviour:
@@ -1644,8 +1648,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310054633}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
+      - m_Target: {fileID: 2076823566}
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
@@ -1809,15 +1813,15 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322936428}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440563043}
   - {fileID: 95772257}
   - {fileID: 1742491460}
-  m_Father: {fileID: 2076823563}
-  m_RootOrder: 4
+  m_Father: {fileID: 920729193}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2014,7 +2018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2211,7 +2215,7 @@ GameObject:
   - component: {fileID: 1742491462}
   - component: {fileID: 1742491461}
   m_Layer: 5
-  m_Name: BackButton (1)
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2298,7 +2302,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1742491461}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: BackInstructionsButton
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2306,7 +2310,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1742491463
 MonoBehaviour:
@@ -2646,7 +2650,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: Play
 --- !u!222 &1925135184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2686,13 +2690,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 345308769}
-  m_Father: {fileID: 262599470}
-  m_RootOrder: 2
+  m_Father: {fileID: 2076823563}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 720, y: -2020}
+  m_SizeDelta: {x: 1000, y: 396.6667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2015791293
 MonoBehaviour:
@@ -2738,17 +2742,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310054633}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: Instructions
-        m_Mode: 1
+      - m_Target: {fileID: 1322936428}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2015791294
 MonoBehaviour:
@@ -2799,6 +2803,7 @@ GameObject:
   - component: {fileID: 2076823563}
   - component: {fileID: 2076823565}
   - component: {fileID: 2076823564}
+  - component: {fileID: 2076823566}
   m_Layer: 5
   m_Name: Main Panel
   m_TagString: Untagged
@@ -2820,8 +2825,9 @@ RectTransform:
   - {fileID: 782561031}
   - {fileID: 1485879327}
   - {fileID: 262599470}
-  - {fileID: 482954840}
-  - {fileID: 1322936429}
+  - {fileID: 1063593272}
+  - {fileID: 414938567}
+  - {fileID: 2015791292}
   m_Father: {fileID: 920729193}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2868,6 +2874,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2076823562}
   m_CullTransparentMesh: 1
+--- !u!114 &2076823566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076823562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764060fcb7f7ae14586b2a736e7e4335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2114062565
 GameObject:
   m_ObjectHideFlags: 0
@@ -3017,7 +3035,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: Play
 --- !u!222 &2117039264
 CanvasRenderer:
   m_ObjectHideFlags: 0

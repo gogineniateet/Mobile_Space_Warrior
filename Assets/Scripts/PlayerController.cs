@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -81,6 +83,8 @@ public class PlayerController : MonoBehaviour
         if (lives <= 0)
         {
             Debug.Log("game over");
+            SceneManager.LoadScene(3);
+
 
         }
     }    
