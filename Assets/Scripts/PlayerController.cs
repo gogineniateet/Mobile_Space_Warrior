@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,12 +12,19 @@ public class PlayerController : MonoBehaviour
     public Transform bulletPosition;
     public const string TURN_ON_COROUTINE = "NextBullet";
     public AudioSource laserSound;
+    public float timer;
+    public Text timerText;
+
     #endregion
 
     #region PRIVATE VARIABLE
     private Rigidbody2D rb;
     private UIManager uiManager;
+<<<<<<< HEAD
     private float timer;
+=======
+   
+>>>>>>> 888174a679c5b78f271ddcadaaac27676cb2616b
     #endregion
 
     #region SINGLETON
@@ -59,6 +66,16 @@ public class PlayerController : MonoBehaviour
         InputHandler.OnPanHeld -= PositionOfShip;
         InputHandler.OnTouchAction -= ShootBullets;
     }
+    private void Update()
+    {
+        timer =  timer + Time.deltaTime;
+       
+        timerText.text =((int)timer).ToString();
+        if(timer > 60)
+        {
+            SceneManager.LoadScene(3);
+        }
+    }
     #endregion
 
     #region PUBLIC METHODS
@@ -85,11 +102,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log("life" + lives);
         StartCoroutine(StartInvincibilityTimer(2.5f));
         uiManager.UpdateLives(lives);
+        
 
         if (lives <= 0 || timer == 10)
         {
+
             Debug.Log("game over");
             SceneManager.LoadScene(3);
+         
 
         }
     }    
