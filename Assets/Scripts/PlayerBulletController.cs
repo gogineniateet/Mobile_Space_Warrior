@@ -46,9 +46,6 @@ public class PlayerBulletController : MonoBehaviour
            
             Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
 
-
-        
-            // SOUNDS 
             // EXPLOSION PARTICAL EFFECT
         }
         if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)

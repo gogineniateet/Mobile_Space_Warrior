@@ -8,7 +8,6 @@ public class Constants : MonoBehaviour
     public const string PLAYER_SHIP_PREFAB = "PlayerShip";
     public const string PLAYER_BULLET_PREFAB = "PlayerLaser";
     public const string ENEMY_01_SHIP_PREFAB = "01_EnemyShip";
-    public const string ENEMY_02_SHIP_PREFAB = "02_EnemyShip";
     public const string ENEMY_BULLET_PREFAB = "EnemyBullet";
     public const string ASTEROID_PREFAB = "Asteroid";
     public const string EXPLOSION_PREFAB = "Explosion";

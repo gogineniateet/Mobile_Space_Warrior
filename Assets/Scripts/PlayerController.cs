@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     #region PRIVATE VARIABLE
     private Rigidbody2D rb;
     private UIManager uiManager;
-   
+    
+
     #endregion
 
     #region SINGLETON
@@ -96,13 +97,12 @@ public class PlayerController : MonoBehaviour
         uiManager.UpdateLives(lives);
         
 
-        if (lives <= 0)
+        if (lives <= 0 || timer == 10)
         {
 
             Debug.Log("game over");
             SceneManager.LoadScene(3);
          
-
 
         }
     }    
