@@ -10,6 +10,7 @@ public class PlayerBulletController : MonoBehaviour
     public ScoreManager kills;
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] GameObject asteroidPrefab;
+  
    
     #endregion
     
@@ -44,17 +45,19 @@ public class PlayerBulletController : MonoBehaviour
             kills.ScoreCalculater(5);
            
             Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
-            
-            
-            //collision.gameObject.transform.rotation = Quaternion.EulerRotation(collision.gameObject.transform.position.y - 0.05f, 0f, 0f);
+
+
+        
             // SOUNDS 
             // EXPLOSION PARTICAL EFFECT
         }
         if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)
         {
             Instantiate(explosionPrefab, this.gameObject.transform.position, Quaternion.identity);
+            
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, collision.gameObject);
+
             kills.ScoreCalculater(10);
 
             //collision.gameObject.GetComponent<EnemyController>().Damage();

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour
 {
-
+    public AudioSource enemyBulletSound;
     private void Update()
     {
         transform.Translate(Vector3.down * Constants.ENEMY_BULLET_SPEED * Time.deltaTime);
         if (transform.position.y < -7f || PlayerController.Instance.isGameOver == true)
         {
-            
+            enemyBulletSound.Play();
             PoolManager.Instance.Recycle("EnemyBullet", this.gameObject);
         }
     }

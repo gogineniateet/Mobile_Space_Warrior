@@ -682,7 +682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19544283, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40.999985, y: 0}
+  m_AnchoredPosition: {x: -40.99999, y: 0}
   m_SizeDelta: {x: 82, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607071076
@@ -759,7 +759,7 @@ MonoBehaviour:
   prefabsToPool:
   - prefab: {fileID: 2160559982161757322, guid: f7424545407177b46b175e750ff539a3, type: 3}
     initialCapacity: 5
-  - prefab: {fileID: 6997221035948308019, guid: 5fca7c8067c03a1498598cc4fbf05c25, type: 3}
+  - prefab: {fileID: 230016815}
     initialCapacity: 5
   - prefab: {fileID: 19029065108197270, guid: 1a224287965f30d468ebede3eb045d57, type: 3}
     initialCapacity: 10
