@@ -25,11 +25,4 @@ public class AsteroidController : MonoBehaviour
     }
     #endregion
 
-    //public void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)
-    //    {
-    //        PoolManager.Instance.Recycle(Constants.ASTEROID_PREFAB, collision.gameObject);
-    //    }
-    //}
 }
