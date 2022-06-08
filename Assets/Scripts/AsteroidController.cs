@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    #region PRIVATE VARIABLES
+    private float timer;
+    #endregion
+
+    #region MONOBEHAVIOUR METHODS
     void Start()
     {
         
@@ -13,6 +17,13 @@ public class AsteroidController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer = timer+ Time.deltaTime;
+        if(timer > 2f)
+        {
+            transform.Translate(Vector3.down * Constants.ASTEROID_SPEED* Time.deltaTime);
+        }
+        
         
     }
+    #endregion
 }

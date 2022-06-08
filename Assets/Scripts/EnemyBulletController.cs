@@ -10,6 +10,7 @@ public class EnemyBulletController : MonoBehaviour
         transform.Translate(Vector3.down * Constants.ENEMY_BULLET_SPEED * Time.deltaTime);
         if (transform.position.y < -7f || PlayerController.Instance.isGameOver == true)
         {
+            
             PoolManager.Instance.Recycle("EnemyBullet", this.gameObject);
         }
     }

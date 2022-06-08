@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 19029065108197269}
   - component: {fileID: 19029065108197275}
   - component: {fileID: 6975722201621782615}
+  - component: {fileID: 9075610611841025543}
   m_Layer: 7
   m_Name: PlayerLaser
   m_TagString: PlayerBullet
@@ -100,6 +101,7 @@ MonoBehaviour:
   screenTop: 6
   kills: {fileID: 0}
   explosionPrefab: {fileID: 100000, guid: f881607407b15cc46b24d6bda799037a, type: 3}
+  asteroidPrefab: {fileID: 100002, guid: a590c04abd57be544b50a1b51a6674ac, type: 3}
 --- !u!60 &6975722201621782615
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +136,24 @@ PolygonCollider2D:
       - {x: 0.038356166, y: 0.36986303}
       - {x: 0.032876715, y: 0.3808219}
       - {x: 0.024657534, y: 0.3890411}
+--- !u!50 &9075610611841025543
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19029065108197270}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

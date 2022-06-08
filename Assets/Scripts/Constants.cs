@@ -17,6 +17,8 @@ public class Constants : MonoBehaviour
     public const int PLAYER_BULLET_SPEED = 1;
     public const int ENEMY_BULLET_SPEED = 3;
 
+    public const float ASTEROID_SPEED = 0.5f;
+
     public const int UI_LAYER = 5;    
     public const int PLAYER_SHIP_LAYER = 6;
     public const int PLAYER_BULLET_LAYER = 7;      
@@ -25,7 +27,7 @@ public class Constants : MonoBehaviour
     public const int ASTEROID_LAYER = 10;
 
     public const int PLAYER_BULLET_SOUND = 1;
-    public const int ENEMY_DESTROY_SOUND = 2;
+    public const int ENEMY_DESTROY_SOUND = 1;
     public const int ASTEROID_DESTROY_SOUND = 3;
     public const int BULLETS_COLLISION_SOUND = 4;
     #endregion

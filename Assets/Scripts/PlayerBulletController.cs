@@ -9,6 +9,7 @@ public class PlayerBulletController : MonoBehaviour
     public float screenTop = 6f;
     public ScoreManager kills;
     [SerializeField] GameObject explosionPrefab;
+    [SerializeField] GameObject asteroidPrefab;
     #endregion
     
 
@@ -40,6 +41,8 @@ public class PlayerBulletController : MonoBehaviour
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ASTEROID_PREFAB, collision.gameObject);
             kills.ScoreCalculater(5);
+            Debug.Log("Asteroid sound");
+            Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
             // SOUNDS 
             // EXPLOSION PARTICAL EFFECT
         }

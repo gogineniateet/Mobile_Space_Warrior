@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     //Scene scene;
     #endregion
     public GameObject explosionPrefab;
+    public AudioSource enemybulletSound;
 
 
 
@@ -36,11 +37,14 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * Constants.ENEMY_SHIP_SPEED * Time.deltaTime);
-        timer = timer + Time.deltaTime;
 
+        timer = timer + Time.deltaTime;
+        
         if (timer > 3f)
         {
+            
             SpawnManager.Instance.SpawnFire(this.transform.position);
+            enemybulletSound.Play();
             timer = 0;
         }
         if (transform.position.y < -6f )
