@@ -100,8 +100,8 @@ MonoBehaviour:
   bulletSpeed: 5
   screenTop: 6
   kills: {fileID: 0}
-  explosionPrefab: {fileID: 100000, guid: f881607407b15cc46b24d6bda799037a, type: 3}
-  asteroidPrefab: {fileID: 100002, guid: a590c04abd57be544b50a1b51a6674ac, type: 3}
+  explosionPrefab: {fileID: 5693516293603803750, guid: 1e67569a085ba2043b69ee5d4292284d, type: 3}
+  asteroidPrefab: {fileID: 3518777453785103167, guid: ed323b0053b1817488e4eace646847d8, type: 3}
 --- !u!60 &6975722201621782615
 PolygonCollider2D:
   m_ObjectHideFlags: 0

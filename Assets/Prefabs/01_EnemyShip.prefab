@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1724694226674453102, guid: 26df23a3897765940aa92fc12c5fe346, type: 3}
+  enemybulletSound: {fileID: 0}
 --- !u!60 &5275709241967474673
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -311,7 +312,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6997221035948308019}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

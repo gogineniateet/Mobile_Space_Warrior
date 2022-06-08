@@ -48,6 +48,7 @@ public class PlayerBulletController : MonoBehaviour
 
             // EXPLOSION PARTICAL EFFECT
         }
+        
         if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)
         {
             Instantiate(explosionPrefab, this.gameObject.transform.position, Quaternion.identity);
