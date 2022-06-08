@@ -43,6 +43,8 @@ public class PlayerBulletController : MonoBehaviour
             kills.ScoreCalculater(5);
             Debug.Log("Asteroid sound");
             Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
+
+            collision.gameObject.transform.rotation = Quaternion.EulerRotation(collision.gameObject.transform.position.y - 0.05f, 0f, 0f);
             // SOUNDS 
             // EXPLOSION PARTICAL EFFECT
         }
