@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public bool isGameOver  = false;
     public Transform bulletPosition;
     public const string TURN_ON_COROUTINE = "NextBullet";
+    public AudioSource laserSound;
     #endregion
 
     #region PRIVATE VARIABLE
@@ -117,6 +118,7 @@ public class PlayerController : MonoBehaviour
     private void ShootTheBullets()
     {
         //NextBullet();
+        laserSound.Play();
         GameObject pooledBullet = PoolManager.Instance.Spawn(Constants.PLAYER_BULLET_PREFAB);
         pooledBullet.transform.position = bulletPosition.position;
         //Instantiate(bulletPrefab, bulletPosition.position, Quaternion.identity);
