@@ -64,13 +64,13 @@ public class PoolManager : MonoBehaviour
         return pools[prefabName].Spawn();
     }
     // Recycle an object with the given name.
-    public void Recycle(string prefabName, GameObject gameObj)
+    public void  Recycle(string prefabName, GameObject gameObj)
     {
         if (!pools.ContainsKey(prefabName))
         {
             return;
         }
-        pools[prefabName].Recycle(gameObj);
+      pools[prefabName].Recycle(gameObj);
     }
     #endregion
 }

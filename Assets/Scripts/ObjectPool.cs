@@ -51,6 +51,7 @@ public class ObjectPool : MonoBehaviour
     {
 		gameObj.SetActive(false);
 		pool.Enqueue(gameObj);
+		
     }
 	#endregion
 

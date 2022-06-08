@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1724694226674453102, guid: 26df23a3897765940aa92fc12c5fe346, type: 3}
   enemybulletSound: {fileID: 0}
+  playerPosition: {fileID: 976960438844599067, guid: a16cbc78201e7774cbcea7a33868c2ed, type: 3}
 --- !u!60 &5275709241967474673
 PolygonCollider2D:
   m_ObjectHideFlags: 0

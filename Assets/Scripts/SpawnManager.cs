@@ -91,15 +91,15 @@ public class SpawnManager : MonoBehaviour
 
         tempEnemy.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);
 
-        if(shoot)
-        {
-            SpawnFire(tempEnemy.transform.position);
-        }
+      
     }
     public void SpawnFire(Vector3 enemyPosition)
     {
-        GameObject tempFire = PoolManager.Instance.Spawn(Constants.ENEMY_BULLET_PREFAB);
-        tempFire.transform.position = enemyPosition + new Vector3(0f, -0.8f, 0f);
+        if (shoot)                         
+        {
+            GameObject tempFire = PoolManager.Instance.Spawn(Constants.ENEMY_BULLET_PREFAB);
+            tempFire.transform.position = enemyPosition + new Vector3(0f, -0.8f, 0f);
+        }
     }
     public void SpawnAsteroid()
     {

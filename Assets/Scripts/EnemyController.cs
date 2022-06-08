@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class EnemyController : MonoBehaviour
     #endregion
     public GameObject explosionPrefab;
     public AudioSource enemybulletSound;
+    public Transform playerPosition;
+    bool spawning = false;
 
 
 
@@ -37,21 +40,30 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * Constants.ENEMY_SHIP_SPEED * Time.deltaTime);
-
-        timer = timer + Time.deltaTime;
-        
-        if (timer > 3f)
-        {
-            
-            SpawnManager.Instance.SpawnFire(this.transform.position);
-            enemybulletSound.Play();
-            timer = 0;
-        }
+        MethodToSpawn();
         if (transform.position.y < -6f )
         {
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
-        timer = 0;
+       
+    }
+
+    private void MethodToSpawn()
+    {
+        // float distShip = Vector3.Distance(playerPosition.position, transform.position);
+        float distShip = transform.position.y - playerPosition.position.y;
+        //Debug.Log(distShip);
+        if (spawning == false && distShip < 6f)
+        {
+            Debug.Log(distShip);
+
+            SpawnManager.Instance.SpawnFire(this.transform.position);
+            spawning = true;
+
+
+            enemybulletSound.Play();
+
+        }
     }
 
     // decreasing player life on enemy ship collision
