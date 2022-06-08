@@ -21,9 +21,15 @@ public class AsteroidController : MonoBehaviour
         if(timer > 2f)
         {
             transform.Translate(Vector3.down * Constants.ASTEROID_SPEED* Time.deltaTime);
-        }
-        
-        
+        }        
     }
     #endregion
+
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)
+    //    {
+    //        PoolManager.Instance.Recycle(Constants.ASTEROID_PREFAB, collision.gameObject);
+    //    }
+    //}
 }

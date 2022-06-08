@@ -28,7 +28,7 @@ public class InputHandler : MonoBehaviour
     #region PRIVATE VARAIBLES
     private Vector2 movement;           //Movement vector will track who far you move.
     private bool tapGestureFailed = false;  //tap Gesture will become,
-    private float startTime;//will keep time when our gesture begins
+    private float startTime; //will keep time when our gesture begins
     private Vector3 defaultAcceleration;
     private bool panGestureRecognized = false;// when we recognize gesture we gone make true
     #endregion
@@ -96,10 +96,10 @@ public class InputHandler : MonoBehaviour
         }
         #endregion
 
-        //void OnEnable()
-        //{
-        //    defaultAcceleration = new Vector3(Input.acceleration.x, Input.acceleration.y, -1 * Input.acceleration.z);
-        //}
+        void OnEnable()
+        {
+            defaultAcceleration = new Vector3(Input.acceleration.x, Input.acceleration.y, -1 * Input.acceleration.z);
+        }
     }
 }
 
