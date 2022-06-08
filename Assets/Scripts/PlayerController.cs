@@ -20,11 +20,8 @@ public class PlayerController : MonoBehaviour
     #region PRIVATE VARIABLE
     private Rigidbody2D rb;
     private UIManager uiManager;
-<<<<<<< HEAD
-    private float timer;
-=======
-   
->>>>>>> 888174a679c5b78f271ddcadaaac27676cb2616b
+    
+
     #endregion
 
     #region SINGLETON
@@ -79,10 +76,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PUBLIC METHODS
-    private void Update()
-    {
-        timer = timer+Time.deltaTime;
-    }
     public void PositionOfShip(Touch touch)
     {
         Vector3 shipPosition = Camera.main.ScreenToWorldPoint(touch.position); //Changing the pixelcoordinate to world coordinates

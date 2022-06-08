@@ -44,14 +44,7 @@ public class PlayerBulletController : MonoBehaviour
             kills.ScoreCalculater(5);
            
             Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
-<<<<<<< HEAD
 
-=======
-            
-            
->>>>>>> 888174a679c5b78f271ddcadaaac27676cb2616b
-            //collision.gameObject.transform.rotation = Quaternion.EulerRotation(collision.gameObject.transform.position.y - 0.05f, 0f, 0f);
-            // SOUNDS 
             // EXPLOSION PARTICAL EFFECT
         }
         if (collision.gameObject.layer == Constants.ENEMY_01_SHIP_LAYER)
