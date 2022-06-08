@@ -48,12 +48,12 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         InputHandler.OnPanHeld += PositionOfShip;
-        //InputHandler.OnTouchAction += ShootBullets;
+        InputHandler.OnTouchAction += ShootBullets;
     }
     private void OnDisable()
     {
         InputHandler.OnPanHeld -= PositionOfShip;
-        //InputHandler.OnTouchAction -= ShootBullets;
+        InputHandler.OnTouchAction -= ShootBullets;
     }
     #endregion
 
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
         if (lives <= 0)
         {
             Debug.Log("game over");
+
         }
     }    
 
@@ -102,9 +103,32 @@ public class PlayerController : MonoBehaviour
         spriteRenderer[1].enabled = true;
         GetComponent<Collider2D>().enabled = true;
     }
+
+    public void ShootBullets(Touch t)
+    {
+        ShootTheBullets();
+        Debug.Log("Shoot the Bullets");
+
+    }
+    private void ShootTheBullets()
+    {
+        //NextBullet();
+        GameObject pooledBullet = PoolManager.Instance.Spawn(Constants.PLAYER_BULLET_PREFAB);
+        pooledBullet.transform.position = bulletPosition.position;
+        //Instantiate(bulletPrefab, bulletPosition.position, Quaternion.identity);
+    }
+    IEnumerator NextBullet()
+    {
+
+        yield return new WaitForSeconds(5f);
+        Debug.Log("Coroutine Function");
+    }
+
+
+
     #endregion
 
-    
+
 
 
 

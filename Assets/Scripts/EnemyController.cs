@@ -40,22 +40,29 @@ public class EnemyController : MonoBehaviour
     // decreasing player life on enemy ship collision
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collided Bullet : " + collision.gameObject.layer);
+
         if (collision.gameObject.layer == Constants.PLAYER_SHIP_LAYER)
         {
-            Debug.Log(collision.gameObject.layer);
             //Destroy(collision.gameObject);
-            GameObject.Find("Player").GetComponent<PlayerController>().LostLife(1);
+            collision.gameObject.GetComponent<PlayerController>().LostLife(1);
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
     }
 
 
-    public void Damage()
-    {
-        
-    }
+    //public void Damage()
+    //{
+    //    animator.SetTrigger("isExplode");
+    //    StartCoroutine(OnDamage());
 
+    //}
 
+    //IEnumerator OnDamage()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
+    //}
 
     #endregion
 

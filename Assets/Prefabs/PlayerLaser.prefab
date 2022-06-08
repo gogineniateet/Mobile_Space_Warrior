@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6975722201621782615}
   m_Layer: 7
   m_Name: PlayerLaser
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   screenTop: 6
-  score: {fileID: 0}
+  kills: {fileID: 0}
 --- !u!60 &6975722201621782615
 PolygonCollider2D:
   m_ObjectHideFlags: 0

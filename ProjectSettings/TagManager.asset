@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Asteroid
   - 01_Enemy
+  - Recycle
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

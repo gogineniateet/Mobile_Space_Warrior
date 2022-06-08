@@ -23,7 +23,7 @@ public class PlayerBulletController : MonoBehaviour
         newPosition.z = 0f;
         transform.position = newPosition;
 
-        if(transform.position.y > screenTop)
+        if (transform.position.y > screenTop)
         {
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
         }
@@ -33,6 +33,7 @@ public class PlayerBulletController : MonoBehaviour
  
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.LogWarning("Collided : " + collision.gameObject.name);
         if (collision.gameObject.layer == Constants.ASTEROID_LAYER)
         {
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
@@ -46,7 +47,7 @@ public class PlayerBulletController : MonoBehaviour
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, collision.gameObject);
             kills.ScoreCalculater(10);
-            //GameObject.Find(Constants.ENEMY_01_SHIP_PREFAB).GetComponent<EnemyController>().Damage();
+            //collision.gameObject.GetComponent<EnemyController>().Damage();
             // PARTICAL EFFECT
         }
         if (collision.gameObject.layer == Constants.ENEMY_BULLET_LAYER)
@@ -56,4 +57,6 @@ public class PlayerBulletController : MonoBehaviour
             // PARTICAL EFFECT
         }
     }
+
+    
 }

@@ -69,9 +69,10 @@ public class SpawnManager : MonoBehaviour
     public void SpawnEnemyShip01()
     {
         GameObject tempEnemy = PoolManager.Instance.Spawn(Constants.ENEMY_01_SHIP_PREFAB);
+
         tempEnemy.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);
-        //tempEnemy.transform.position = new Vector3(Random.Range(-2, 2), transform.position.y, 0f);
-        //tempEnemy.transform.position = transform.position;
+
+        SpawnFire(tempEnemy.transform.position);
     }
     public void SpawnFire(Vector3 enemyPosition)
     {
@@ -82,7 +83,6 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject tempAsteroid = PoolManager.Instance.Spawn(Constants.ASTEROID_PREFAB);
         tempAsteroid.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);
-        //tempAsteroid.transform.position = new Vector3(Random.Range(Screen.width, Screen.width), Screen.height, 0f);
     }
     
     #endregion

@@ -51,8 +51,6 @@ public class InputHandler : MonoBehaviour
                 movement = Vector2.zero; //We made our movement to zero.
                 startTime = Time.time;
             }
-
-
             else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
                 movement += touch.deltaPosition; //The position delta since last change in pixel coordinates.
@@ -97,8 +95,6 @@ public class InputHandler : MonoBehaviour
             }
         }
         #endregion
-
-
 
         //void OnEnable()
         //{
