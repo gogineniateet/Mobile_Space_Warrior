@@ -17,12 +17,12 @@ public class ScoreManager : MonoBehaviour
     public void ScoreCalculater(int value)
     {
         Kills = Kills + value;
-        Debug.Log("Kills :" + Kills);
+        //Debug.Log("Kills :" + Kills);
         scoreText.text = Kills.ToString();
 
         if(Kills >= 100)
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(4);//Next level scene
         }
 
     }

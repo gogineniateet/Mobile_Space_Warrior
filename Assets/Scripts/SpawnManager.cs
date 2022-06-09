@@ -41,9 +41,9 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        scene = SceneManager.GetActiveScene();
+        //scene = SceneManager.GetActiveScene();
         Vector2 center = Camera.main.ScreenToWorldPoint(canvas.GetComponent<RectTransform>().rect.center);
-        Debug.Log(center);
+        //Debug.Log(center);
         spawnPos.x = Mathf.Abs(center.x + 0.5f);
         spawnPos.y = Mathf.Abs(center.y - 0.7f);
         Debug.Log(spawnPos);
@@ -51,13 +51,13 @@ public class SpawnManager : MonoBehaviour
         if (scene.buildIndex == 2)
         {
             shoot = true;
-            Debug.Log("current scene" + scene.buildIndex);
+            //Debug.Log("current scene" + scene.buildIndex);
             
         }
         else
         {
             shoot = false;
-            Debug.Log("current scene" + scene.buildIndex);
+            //Debug.Log("current scene" + scene.buildIndex);
         }
     }
 

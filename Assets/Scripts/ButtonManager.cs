@@ -33,17 +33,18 @@ public class ButtonManager : MonoBehaviour
 
     public void BackSettingsButton()
     {
+        buttonsPanel.SetActive(true);
         settingsPanel.SetActive(false);
 
-        if (buttonsPanel != null)
-        {
-            buttonsPanel.SetActive(true);
-        }
+       
+           
+        
     }
 
     public void BackInstructionsButton()
     {
-        // instructionsPanel.SetActive(false);
+        buttonsPanel.SetActive(true);
+        instructionsPanel.SetActive(false);
     }
 
     public void Instructions()

@@ -10,6 +10,8 @@ public class PlayerBulletController : MonoBehaviour
     public ScoreManager kills;
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] GameObject asteroidPrefab;
+    [SerializeField] GameObject asteroidenemyPrefab;
+
     #endregion
 
 
@@ -39,11 +41,12 @@ public class PlayerBulletController : MonoBehaviour
         Debug.LogWarning("Collided : " + collision.gameObject.name);
         if (collision.gameObject.layer == Constants.ASTEROID_LAYER)
         {
+            Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ASTEROID_PREFAB, collision.gameObject);
             kills.ScoreCalculater(5);
            
-            Instantiate(asteroidPrefab, transform.position, Quaternion.identity);
+            
 
             // EXPLOSION PARTICAL EFFECT
         }
@@ -62,9 +65,10 @@ public class PlayerBulletController : MonoBehaviour
         }
         if (collision.gameObject.layer == Constants.ENEMY_BULLET_LAYER)
         {
+            Instantiate(asteroidenemyPrefab, transform.position, Quaternion.identity);
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
             PoolManager.Instance.Recycle(Constants.ENEMY_BULLET_PREFAB, collision.gameObject);
-            // PARTICAL EFFECT
+           
         }
     }
 

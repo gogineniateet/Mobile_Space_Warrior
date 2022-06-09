@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public static int lives = 3;
     public bool isGameOver  = false;
     public Transform bulletPosition;
-    public const string TURN_ON_COROUTINE = "NextBullet";
     public AudioSource laserSound;
     public float timer;
     public Text timerText;
@@ -70,7 +69,7 @@ public class PlayerController : MonoBehaviour
         timerText.text =((int)timer).ToString();
         if(timer > 60)
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(3); //Switching to Gameover scene
         }
     }
     #endregion
@@ -92,16 +91,16 @@ public class PlayerController : MonoBehaviour
     public void LostLife(int life)
     {
         lives = lives - life;
-        Debug.Log("life" + lives);
+        //Debug.Log("life" + lives);
         StartCoroutine(StartInvincibilityTimer(2.5f));
         uiManager.UpdateLives(lives);
         
 
-        if (lives <= 0 || timer == 10)
+        if (lives <= 0 || timer == 60)
         {
 
             Debug.Log("game over");
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(3); // game over 
          
 
         }
@@ -129,24 +128,17 @@ public class PlayerController : MonoBehaviour
     public void ShootBullets(Touch t)
     {
         ShootTheBullets();
-        Debug.Log("Shoot the Bullets");
+        //Debug.Log("Shoot the Bullets");
 
     }
     private void ShootTheBullets()
     {
-        //NextBullet();
         laserSound.Play();
         GameObject pooledBullet = PoolManager.Instance.Spawn(Constants.PLAYER_BULLET_PREFAB);
         pooledBullet.transform.position = bulletPosition.position;
-        //Instantiate(bulletPrefab, bulletPosition.position, Quaternion.identity);
+        
     }
-    IEnumerator NextBullet()
-    {
-
-        yield return new WaitForSeconds(5f);
-        Debug.Log("Coroutine Function");
-    }
-
+    
 
 
     #endregion

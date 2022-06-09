@@ -16,14 +16,17 @@ public class AsteroidController : MonoBehaviour
         timer = timer+ Time.deltaTime;
         if(timer > 2f)
         {
-            transform.Translate(Vector3.down * Constants.ASTEROID_SPEED* Time.deltaTime);
+            transform.Translate(Vector3.down * Constants.ASTEROID_SPEED * Time.deltaTime); //movement of the asteroid
         }        
     }
+    #endregion
 
+    #region PRIVATE METHODS
+
+    //Checking Asteroid and player collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Collided Bullet : " + collision.gameObject.layer);
-
+        
         if (collision.gameObject.layer == Constants.PLAYER_SHIP_LAYER)
         {
             collision.gameObject.GetComponent<PlayerController>().LostLife(1);

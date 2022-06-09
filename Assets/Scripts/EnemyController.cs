@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     #region PRIVATE VBARIABLE
     private float timer;
-    private Animator animator;
+
 
     #endregion PUBLIC VARAIBLES
     public GameObject explosionPrefab;
@@ -18,15 +18,12 @@ public class EnemyController : MonoBehaviour
 
 
     #region MONOBEHAVIOR METHOD
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+   
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.up * Constants.ENEMY_SHIP_SPEED * Time.deltaTime);
-        MethodToSpawn();
+        MethodToBulletSpawn();
         if (transform.position.y < -6f )
         {
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
@@ -37,29 +34,22 @@ public class EnemyController : MonoBehaviour
 
 
     #region PRIVATE METHODS
-    private void MethodToSpawn()
+    private void MethodToBulletSpawn()
     {
-        // float distShip = Vector3.Distance(playerPosition.position, transform.position);
-        float distShip = transform.position.y - playerPosition.position.y;
-        //Debug.Log(distShip);
+        float distShip = transform.position.y - playerPosition.position.y; //calculating distance between player and enemy position
         if (spawning == false && distShip < 6f)
         {
-            Debug.Log(distShip);
-
+            //Debug.Log(distShip);
             SpawnManager.Instance.SpawnFire(this.transform.position);
             spawning = true;
-
-
             enemybulletSound.Play();
-
         }
     }
 
     // decreasing player life on enemy ship collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided Bullet : " + collision.gameObject.layer);
-
+       // Debug.Log("Collided Bullet : " + collision.gameObject.layer);
         if (collision.gameObject.layer == Constants.PLAYER_SHIP_LAYER)
         {
             collision.gameObject.GetComponent<PlayerController>().LostLife(1);
