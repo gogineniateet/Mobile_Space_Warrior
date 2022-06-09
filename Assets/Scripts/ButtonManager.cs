@@ -12,12 +12,12 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    public void LevelUp()
+    public void LevelUp() //Switch to next level
     {
         SceneManager.LoadScene(2);
     }
 
-
+    //Settinngs panel to be active
     public void Settings()
     {
         if(settingsPanel != null)
@@ -30,16 +30,14 @@ public class ButtonManager : MonoBehaviour
             buttonsPanel.SetActive(false);
         }
     }
-
+    //back to settings panel
     public void BackSettingsButton()
     {
         buttonsPanel.SetActive(true);
         settingsPanel.SetActive(false);
-
-       
-           
-        
     }
+
+    //Back to instructions panel
 
     public void BackInstructionsButton()
     {

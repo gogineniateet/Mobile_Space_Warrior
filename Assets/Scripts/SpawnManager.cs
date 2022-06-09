@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        //scene = SceneManager.GetActiveScene();
+        scene = SceneManager.GetActiveScene();
         Vector2 center = Camera.main.ScreenToWorldPoint(canvas.GetComponent<RectTransform>().rect.center);
         //Debug.Log(center);
         spawnPos.x = Mathf.Abs(center.x + 0.5f);
@@ -88,16 +88,21 @@ public class SpawnManager : MonoBehaviour
         GameObject tempEnemy = PoolManager.Instance.Spawn(Constants.ENEMY_01_SHIP_PREFAB);
 
         tempEnemy.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);
-
+        
+       
       
     }
     public void SpawnFire(Vector3 enemyPosition)
     {
-        if (shoot)                         
+        if(shoot)
         {
             GameObject tempFire = PoolManager.Instance.Spawn(Constants.ENEMY_BULLET_PREFAB);
             tempFire.transform.position = enemyPosition + new Vector3(0f, -0.8f, 0f);
+
         }
+       
+           
+        
     }
     public void SpawnAsteroid()
     {

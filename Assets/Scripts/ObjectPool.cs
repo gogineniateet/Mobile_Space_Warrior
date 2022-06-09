@@ -40,8 +40,10 @@ public class ObjectPool : MonoBehaviour
 		{
 			obj = GameObject.Instantiate(prefab) as GameObject;
 			obj.transform.parent = parent;
+			
 		}
 		obj.SetActive(true);
+		
 		return obj;
 	}
 
@@ -49,10 +51,11 @@ public class ObjectPool : MonoBehaviour
 	// Storing game object again to the pool
 	public void Recycle(GameObject gameObj)
     {
-		gameObj.SetActive(false);
-		pool.Enqueue(gameObj);
 		
-    }
+		pool.Enqueue(gameObj);
+		gameObj.SetActive(false);
+
+	}
 	#endregion
 
 

@@ -36,14 +36,17 @@ public class EnemyController : MonoBehaviour
     #region PRIVATE METHODS
     private void MethodToBulletSpawn()
     {
-        float distShip = transform.position.y - playerPosition.position.y; //calculating distance between player and enemy position
+
+        float distShip = this. transform.position.y - playerPosition.position.y; //calculating distance between player and enemy position
+
         if (spawning == false && distShip < 6f)
         {
-            //Debug.Log(distShip);
             SpawnManager.Instance.SpawnFire(this.transform.position);
             spawning = true;
-            enemybulletSound.Play();
         }
+            //spawning = true;
+            enemybulletSound.Play();
+        
     }
 
     // decreasing player life on enemy ship collision

@@ -60,7 +60,7 @@ public class PoolManager : MonoBehaviour
     {
         if (!pools.ContainsKey(prefabName))
             return null;
-
+        
         return pools[prefabName].Spawn();
     }
     // Recycle an object with the given name.
