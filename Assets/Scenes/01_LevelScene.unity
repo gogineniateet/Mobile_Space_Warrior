@@ -385,7 +385,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cba7df490d2b4524b98dd71283f052b9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b54057b070d9b94ba01e3a4ccb3a69b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -866,7 +866,7 @@ MonoBehaviour:
   - prefab: {fileID: 6997221035948308019, guid: 5fca7c8067c03a1498598cc4fbf05c25, type: 3}
     initialCapacity: 5
   - prefab: {fileID: 19029065108197270, guid: 1a224287965f30d468ebede3eb045d57, type: 3}
-    initialCapacity: 10
+    initialCapacity: 20
   - prefab: {fileID: 5831344721861421176, guid: aec2041c44c69a14e94f3e2166a3a603, type: 3}
     initialCapacity: 5
 --- !u!4 &804470989

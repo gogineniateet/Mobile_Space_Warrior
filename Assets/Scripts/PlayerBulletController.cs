@@ -10,11 +10,10 @@ public class PlayerBulletController : MonoBehaviour
     public ScoreManager kills;
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] GameObject asteroidPrefab;
-  
-   
     #endregion
-    
 
+
+    #region MONOBEHAVIOUR METHOD
     private void Start()
     {
         kills = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
@@ -32,9 +31,9 @@ public class PlayerBulletController : MonoBehaviour
             PoolManager.Instance.Recycle(Constants.PLAYER_BULLET_PREFAB, this.gameObject);
         }
     }
+    #endregion
 
-   
- 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.LogWarning("Collided : " + collision.gameObject.name);

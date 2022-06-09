@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 437691281}
   - component: {fileID: 437691284}
   m_Layer: 5
-  m_Name: BackButton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2370,7 +2370,7 @@ GameObject:
   - component: {fileID: 1742491462}
   - component: {fileID: 1742491461}
   m_Layer: 5
-  m_Name: BackButton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2747,7 +2747,7 @@ GameObject:
   - component: {fileID: 1925135184}
   - component: {fileID: 1925135183}
   m_Layer: 5
-  m_Name: BackButtonText
+  m_Name: PlayButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2805,7 +2805,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: Play
 --- !u!222 &1925135184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3132,7 +3132,7 @@ GameObject:
   - component: {fileID: 2117039264}
   - component: {fileID: 2117039263}
   m_Layer: 5
-  m_Name: BackText
+  m_Name: PlayText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3190,7 +3190,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Back
+  m_Text: 'Play
+
+'
 --- !u!222 &2117039264
 CanvasRenderer:
   m_ObjectHideFlags: 0

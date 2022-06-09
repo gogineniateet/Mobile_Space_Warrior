@@ -9,10 +9,6 @@ public class AsteroidController : MonoBehaviour
     #endregion
 
     #region MONOBEHAVIOUR METHODS
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -22,6 +18,17 @@ public class AsteroidController : MonoBehaviour
         {
             transform.Translate(Vector3.down * Constants.ASTEROID_SPEED* Time.deltaTime);
         }        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log("Collided Bullet : " + collision.gameObject.layer);
+
+        if (collision.gameObject.layer == Constants.PLAYER_SHIP_LAYER)
+        {
+            collision.gameObject.GetComponent<PlayerController>().LostLife(1);
+            PoolManager.Instance.Recycle(Constants.ASTEROID_PREFAB, this.gameObject);
+        }
     }
     #endregion
 

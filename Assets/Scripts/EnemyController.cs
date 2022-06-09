@@ -9,33 +9,19 @@ public class EnemyController : MonoBehaviour
     #region PRIVATE VBARIABLE
     private float timer;
     private Animator animator;
-    //private bool shoot = false;
-    //Scene scene;
-    #endregion
+
+    #endregion PUBLIC VARAIBLES
     public GameObject explosionPrefab;
     public AudioSource enemybulletSound;
     public Transform playerPosition;
     bool spawning = false;
 
 
-
+    #region MONOBEHAVIOR METHOD
     private void Start()
     {
-        //scene = SceneManager.GetActiveScene();
         animator = GetComponent<Animator>();
-        //if(scene.buildIndex == 2)
-        //{
-        //    shoot = true;
-        //}
-        //else
-        //{
-        //    shoot = false;
-        //}
-
     }
-
-
-    #region
     // Update is called once per frame
     void Update()
     {
@@ -45,9 +31,12 @@ public class EnemyController : MonoBehaviour
         {
             PoolManager.Instance.Recycle(Constants.ENEMY_01_SHIP_PREFAB, this.gameObject);
         }
-       
     }
+    #endregion
 
+
+
+    #region PRIVATE METHODS
     private void MethodToSpawn()
     {
         // float distShip = Vector3.Distance(playerPosition.position, transform.position);
@@ -67,7 +56,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // decreasing player life on enemy ship collision
-    public void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collided Bullet : " + collision.gameObject.layer);
 

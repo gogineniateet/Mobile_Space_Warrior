@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour
 {
+    #region PUBLIC VARIABLES 
     public AudioSource enemyBulletSound;
+    #endregion
+
+    #region MONOBEHAVIOUR METHODS
     private void Update()
     {
         transform.Translate(Vector3.down * Constants.ENEMY_BULLET_SPEED * Time.deltaTime);
@@ -13,7 +17,8 @@ public class EnemyBulletController : MonoBehaviour
             enemyBulletSound.Play();
             PoolManager.Instance.Recycle("EnemyBullet", this.gameObject);
         }
-    }
+    } 
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -27,5 +32,6 @@ public class EnemyBulletController : MonoBehaviour
             PoolManager.Instance.Recycle("EnemyBullet", this.gameObject);
         }
     }
+    #endregion
 
 }

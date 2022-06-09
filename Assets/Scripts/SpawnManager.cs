@@ -4,10 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-
 public class SpawnManager : MonoBehaviour
 {
-
     #region PRIVATE VARIABLE
     private float timer1;
     private float timer2;
