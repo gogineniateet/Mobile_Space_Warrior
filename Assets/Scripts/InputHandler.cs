@@ -9,12 +9,10 @@ public class InputHandler : MonoBehaviour
     public delegate void TapAction(Touch touch);
     public static event TapAction OnTouchAction;
     //when the user presses and drags on the screen. if the user removes too quickly then its considered as tap geture.
-    public delegate void PanBeganAction(Touch t);
-    public static event PanBeganAction OnPanBegan;
+   
     public delegate void PanHeldAction(Touch t);
     public static event PanHeldAction OnPanHeld;
-    public delegate void PanEndedAction(Touch t);
-    public static event PanEndedAction OnPanEnded;
+   
     //To check accelerometer action
     public delegate void AccelerometerChangedAction(Vector3 acceleration);
     public static event AccelerometerChangedAction OnAccelerometerChanged;
@@ -60,8 +58,6 @@ public class InputHandler : MonoBehaviour
                     panGestureRecognized = true;
                     tapGestureFailed = true;
 
-                    if (OnPanBegan != null)
-                        OnPanBegan(touch);
                 }
                 else if (panGestureRecognized)
                 {
@@ -76,13 +72,7 @@ public class InputHandler : MonoBehaviour
             }
             else  // if finger is removed from screen, then we are calling if tap gesture is not failed.
             {
-                if (panGestureRecognized)
-                {
-                    if (OnPanEnded != null)
-                    {
-                        OnPanEnded(touch);
-                    }                       
-                }
+                
                 if (!tapGestureFailed)
                 {
                     if (OnTouchAction != null)

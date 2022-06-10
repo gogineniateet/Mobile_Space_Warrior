@@ -34,7 +34,8 @@ public class EnemyController : MonoBehaviour
 
 
     #region PRIVATE METHODS
-    private void MethodToBulletSpawn()
+
+    private void MethodToBulletSpawn() //spawning bullets when player is near to enemy ship
     {
 
         float distShip = this. transform.position.y - playerPosition.position.y; //calculating distance between player and enemy position

@@ -10,7 +10,7 @@ public class VolumeSlider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("musicVolume"))
+        if (PlayerPrefs.HasKey("musicVolume")) //taking the variable value
         {
             PlayerPrefs.SetFloat("musicVolume", 1f);
             Load();
@@ -25,13 +25,13 @@ public class VolumeSlider : MonoBehaviour
 
 
     }
-    public void ChangeVolume()
+    public void ChangeVolume() //change the volume value
     {
         AudioListener.volume = volumeSlider.value;
 
         Save();
     }
-    public void Load()
+    public void Load() //load the volume based on music volume
     {
         volumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
     }

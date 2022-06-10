@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
     #endregion
 
     #region PUBLIC METHOD
-    public void ScoreCalculater(int value)
+    public void ScoreCalculater(int value) //Increasing the score 
     {
         Kills = Kills + value;
         //Debug.Log("Kills :" + Kills);

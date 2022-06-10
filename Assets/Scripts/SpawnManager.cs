@@ -42,13 +42,14 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
+        //To get the spawn position
         Vector2 center = Camera.main.ScreenToWorldPoint(canvas.GetComponent<RectTransform>().rect.center);
         //Debug.Log(center);
         spawnPos.x = Mathf.Abs(center.x + 0.5f);
         spawnPos.y = Mathf.Abs(center.y - 0.7f);
         Debug.Log(spawnPos);
 
-        if (scene.buildIndex == 2)
+        if (scene.buildIndex == 2) //checking for 2nd level 
         {
             shoot = true;
             //Debug.Log("current scene" + scene.buildIndex);
@@ -83,16 +84,18 @@ public class SpawnManager : MonoBehaviour
 
 
     #region PUBLIC METHODS
-    public void SpawnEnemyShip01()
+    public void SpawnEnemyShip01() //spawning the enemy ships
     {
         GameObject tempEnemy = PoolManager.Instance.Spawn(Constants.ENEMY_01_SHIP_PREFAB);
-
-        tempEnemy.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);
+        tempEnemy.transform.position = new Vector3(Random.Range(-Screen.width, Screen.width), Screen.height, 0f);
+        Debug.Log(Screen.width);
+        Debug.Log(Screen.height);
+       // tempEnemy.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);
         
        
       
     }
-    public void SpawnFire(Vector3 enemyPosition)
+    public void SpawnFire(Vector3 enemyPosition) //spawning the bullets from enemy ship
     {
         if(shoot)
         {
@@ -101,10 +104,9 @@ public class SpawnManager : MonoBehaviour
 
         }
        
-           
         
     }
-    public void SpawnAsteroid()
+    public void SpawnAsteroid() //asteroid spawning
     {
         GameObject tempAsteroid = PoolManager.Instance.Spawn(Constants.ASTEROID_PREFAB);
         tempAsteroid.transform.position = new Vector3(Random.Range(-spawnPos.x, spawnPos.x), spawnPos.y, 0f);

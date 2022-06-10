@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PUBLIC METHODS
-    public void PositionOfShip(Touch touch)
+    public void PositionOfShip(Touch touch) //based on touch, player position to be changed
     {
         Vector3 shipPosition = Camera.main.ScreenToWorldPoint(touch.position); //Changing the pixelcoordinate to world coordinates
         shipPosition.z = transform.position.z;
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
         transform.position = shipPosition;
     }
-    public void LostLife(int life)
+    public void LostLife(int life) //Loses the player life
     {
         lives = lives - life;
         //Debug.Log("life" + lives);
@@ -99,14 +99,14 @@ public class PlayerController : MonoBehaviour
         if (lives <= 0 || timer == 60)
         {
 
-            Debug.Log("game over");
+           // Debug.Log("game over");
             SceneManager.LoadScene(3); // game over 
          
 
         }
     }    
 
-    public IEnumerator StartInvincibilityTimer(float timeLimit)
+    public IEnumerator StartInvincibilityTimer(float timeLimit) //To blink the sprites
     {
         GetComponent<Collider2D>().enabled = false;
         SpriteRenderer[] spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Shoot the Bullets");
 
     }
-    private void ShootTheBullets()
+    private void ShootTheBullets() //Shoot the bullets from bullet position
     {
         laserSound.Play();
         GameObject pooledBullet = PoolManager.Instance.Spawn(Constants.PLAYER_BULLET_PREFAB);
