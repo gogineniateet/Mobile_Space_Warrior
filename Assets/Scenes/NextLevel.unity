@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 738836758}
   - component: {fileID: 738836757}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GameWonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 1440796494}
   - component: {fileID: 1440796493}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
